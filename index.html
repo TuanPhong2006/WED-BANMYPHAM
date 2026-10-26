@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMINA COSMETICS | Mỹ Phẩm & Chăm Sóc Sắc Đẹp Chính Hãng Cao Cấp</title>
+  
+  <!-- Favicon & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+
+  <style>
+    /* Home Specific Styles */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, #fff2f6 0%, #fde6ee 40%, #faedf3 100%);
+      padding: 80px 0 90px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(216, 74, 117, 0.12);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 50px;
+      line-height: 1.2;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(216, 74, 117, 0.18);
+    }
+
+    .hero-stat-item strong {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--secondary);
+      display: block;
+      line-height: 1;
+    }
+
+    .hero-stat-item span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-img-wrap {
+      position: relative;
+    }
+
+    .hero-main-img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(183, 50, 92, 0.18);
+      object-fit: cover;
+      max-height: 520px;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: floatSlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSlow {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    /* Features Strip */
+    .features-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 30px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .feature-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .feature-item h4 {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 2px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Category Cards */
+    .category-grid-home {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .cat-card-home {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      padding: 24px 16px;
+      text-align: center;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cat-card-home:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .cat-icon-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 14px;
+      transition: var(--transition);
+    }
+
+    .cat-card-home:hover .cat-icon-circle {
+      background: var(--primary);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .cat-card-home h4 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--secondary);
+      margin-bottom: 4px;
+    }
+
+    .cat-card-home span {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* Flash Sale Section */
+    .flash-sale-section {
+      background: linear-gradient(135deg, #2b1722 0%, #1a0f15 100%);
+      color: #fff;
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .flash-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .countdown-timer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .time-box {
+      background: #3e2231;
+      border: 1px solid #63364e;
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-align: center;
+      min-width: 54px;
+    }
+
+    .time-box strong {
+      font-size: 20px;
+      font-family: var(--font-serif);
+      color: var(--accent-rose);
+      display: block;
+      line-height: 1;
+    }
+
+    .time-box small {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #c9b6c0;
+    }
+
+    /* Routine Banner */
+    .routine-banner {
+      background: linear-gradient(135deg, #fbebf1 0%, #f6e4eb 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .routine-body {
+      padding: 50px 40px;
+    }
+
+    .routine-body h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--secondary);
+      margin: 10px 0 16px;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid, .routine-banner {
+        grid-template-columns: 1fr;
+      }
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .category-grid-home {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid-home {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-text">
+        <i class="fa-solid fa-sparkles"></i> Miễn phí vận chuyển toàn quốc đơn từ <strong>500.000₫</strong> | Nhập mã <span>LUMINA10</span> giảm 10%
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html"><i class="fa-solid fa-circle-check"></i> 100% Chính hãng</a>
+        <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Hệ thống Showroom</a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <div class="brand-name">LUMINA <span>Beauty</span></div>
+            <span class="brand-tagline">Nâng niu vẻ đẹp thuần khiết</span>
+          </div>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="header-search-wrap">
+          <form class="header-search-form" action="shop.html" method="GET">
+            <input type="text" name="q" placeholder="Tìm kiếm serum, son môi, nước hoa Dior, Chanel..." required />
+            <button type="submit" class="search-submit-btn" title="Tìm kiếm">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="wishlist.html" class="action-icon-btn" title="Danh sách yêu thích">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-counter wishlist-count-badge" style="display:none;">0</span>
+          </a>
+
+          <a href="cart.html" class="action-icon-btn" title="Giỏ hàng của bạn">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-counter cart-count-badge" style="display:none;">0</span>
+          </a>
+
+          <!-- User Auth Slot -->
+          <div class="user-auth-slot">
+            <!-- Dynamic via main.js -->
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-menu-btn" id="mobileMenuToggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+          <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li><a href="shop.html" class="nav-link">Cửa hàng <span class="nav-badge-hot">HOT</span></a></li>
+          <li><a href="shop.html?category=skincare" class="nav-link">Chăm sóc da</a></li>
+          <li><a href="shop.html?category=makeup" class="nav-link">Trang điểm</a></li>
+          <li><a href="shop.html?category=perfume" class="nav-link">Nước hoa</a></li>
+          <li><a href="blog.html" class="nav-link">Góc làm đẹp</a></li>
+          <li><a href="contact.html" class="nav-link">Liên hệ & Hỗ trợ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <div class="brand-name" style="font-size:20px;">LUMINA <span>Beauty</span></div>
+      <button id="mobileNavClose" style="font-size:24px; color:var(--text-muted);">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> Giới thiệu</a>
+      <a href="shop.html"><i class="fa-solid fa-store"></i> Cửa hàng mỹ phẩm</a>
+      <a href="shop.html?category=skincare"><i class="fa-solid fa-wand-magic-sparkles"></i> Chăm sóc da</a>
+      <a href="shop.html?category=makeup"><i class="fa-solid fa-palette"></i> Trang điểm</a>
+      <a href="shop.html?category=perfume"><i class="fa-solid fa-spray-can-sparkles"></i> Nước hoa</a>
+      <a href="wishlist.html"><i class="fa-solid fa-heart"></i> Danh sách yêu thích</a>
+      <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Giỏ hàng</a>
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog làm đẹp</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+      <hr style="border:none; border-top:1px solid var(--border-light); margin:10px 0;" />
+      <a href="staff.html" style="color:#0284c7;"><i class="fa-solid fa-clipboard-check"></i> Cổng Nhân Viên</a>
+      <a href="admin.html" style="color:#7c3aed;"><i class="fa-solid fa-chart-pie"></i> Cổng Quản Trị Viên</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fa-solid fa-award"></i> Bộ Sưu Tập Mùa Thu - Đông 2026
+          </div>
+          <h1 class="hero-title">
+            Tỏa Sáng Tự Tin Với Vẻ Đẹp <span>Thuần Khiết</span>
+          </h1>
+          <p class="hero-desc">
+            Khám phá hơn 1.000+ sản phẩm mỹ phẩm chính hãng từ các thương hiệu hàng đầu thế giới như Estée Lauder, Dior, Chanel, Laneige. Đem đến liệu trình chăm sóc da hoàn mỹ chuẩn y khoa.
+          </p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn-primary">
+              <i class="fa-solid fa-bag-shopping"></i> Mua sắm ngay
+            </a>
+            <a href="about.html" class="btn-secondary">
+              <i class="fa-solid fa-circle-play"></i> Về Lumina
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <strong>100%</strong>
+              <span>Chính Hãng 100%</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong>50K+</strong>
+              <span>Khách Hàng Hài Lòng</span>
+            </div>
+            <div class="hero-stat-item">
+              <strong>4.9 ★</strong>
+              <span>Đánh Giá Chất Lượng</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=80" alt="Lumina Beauty Cosmetics" class="hero-main-img" />
+          <div class="hero-floating-card">
+            <div style="width:44px; height:44px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px;">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div style="font-weight:700; font-size:14px; color:var(--secondary);">Cam kết chuẩn Auth</div>
+              <small style="color:var(--text-muted);">Hoàn tiền 200% nếu phát hiện hàng giả</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Strip -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+          <div>
+            <h4>Giao hàng miễn phí</h4>
+            <p>Cho mọi đơn hàng từ 500K</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fa-solid fa-certificate"></i></div>
+          <div>
+            <h4>100% Chính hãng</h4>
+            <p>Nhập khẩu chính ngạch bộ Y Tế</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fa-solid fa-rotate-left"></i></div>
+          <div>
+            <h4>Đổi trả 7 ngày</h4>
+            <p>Miễn phí đổi mới nếu kích ứng</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-box"><i class="fa-solid fa-headset"></i></div>
+          <div>
+            <h4>Tư vấn da chuyên sâu</h4>
+            <p>Dược sĩ & chuyên gia 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">DANH MỤC NỔI BẬT</span>
+        <h2 class="section-title">Khám Phá Danh Mục Mỹ Phẩm</h2>
+        <p class="section-desc">Lựa chọn những dòng sản phẩm chuyên biệt phù hợp với từng nhu cầu chăm sóc sắc đẹp của bạn</p>
+      </div>
+
+      <div class="category-grid-home">
+        <a href="shop.html?category=skincare" class="cat-card-home">
+          <div class="cat-icon-circle"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4>Chăm sóc da</h4>
+          <span>Serum, kem dưỡng, toner</span>
+        </a>
+        <a href="shop.html?category=makeup" class="cat-card-home">
+          <div class="cat-icon-circle"><i class="fa-solid fa-palette"></i></div>
+          <h4>Trang điểm</h4>
+          <span>Son môi, cushion, phấn mắt</span>
+        </a>
+        <a href="shop.html?category=perfume" class="cat-card-home">
+          <div class="cat-icon-circle"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+          <h4>Nước hoa</h4>
+          <span>Chanel, Dior, Le Labo</span>
+        </a>
+        <a href="shop.html?category=haircare" class="cat-card-home">
+          <div class="cat-icon-circle"><i class="fa-solid fa-pump-soap"></i></div>
+          <h4>Chăm sóc tóc</h4>
+          <span>Tinh dầu dưỡng, serum phục hồi</span>
+        </a>
+        <a href="shop.html?category=bodycare" class="cat-card-home">
+          <div class="cat-icon-circle"><i class="fa-solid fa-spa"></i></div>
+          <h4>Chăm sóc cơ thể</h4>
+          <span>Dưỡng thể, tẩy da chết</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flash Sale with Countdown -->
+  <section class="flash-sale-section">
+    <div class="container">
+      <div class="flash-header">
+        <div>
+          <span style="color:var(--accent-rose); font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase;">
+            <i class="fa-solid fa-bolt"></i> GIỜ VÀNG SĂN DEAL
+          </span>
+          <h2 style="font-family:var(--font-serif); font-size:32px; margin-top:4px;">Flash Sale Độc Quyền</h2>
+        </div>
+
+        <div class="countdown-timer">
+          <div class="time-box"><strong id="saleHours">08</strong><small>Giờ</small></div>
+          <div class="time-box"><strong id="saleMinutes">45</strong><small>Phút</small></div>
+          <div class="time-box"><strong id="saleSeconds">20</strong><small>Giây</small></div>
+        </div>
+      </div>
+
+      <!-- Flash Sale Products Grid -->
+      <div class="products-grid" id="homeFlashSaleGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">YÊU THÍCH NHẤT</span>
+        <h2 class="section-title">Sản Phẩm Bán Chạy Trong Tháng</h2>
+        <p class="section-desc">Được hàng chục ngàn khách hàng kiểm chứng về chất lượng và độ an toàn dịu nhẹ</p>
+      </div>
+
+      <div class="products-grid" id="homeBestSellerGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="shop.html" class="btn-primary">
+          <i class="fa-solid fa-arrow-right"></i> Xem tất cả sản phẩm
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skincare Routine Banner -->
+  <section class="container" style="margin-bottom: 70px;">
+    <div class="routine-banner">
+      <div class="routine-body">
+        <span class="section-subtitle">LIỆU TRÌNH CHUYÊN SÂU</span>
+        <h3>Bí Quyết Làn Da Thủy Tinh (Glass Skin) Căng Mọng</h3>
+        <p style="font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:24px;">
+          Kết hợp hoàn hảo giữa Niacinamide tinh khiết, B5 và Hyaluronic Acid đa phân tử giúp phục hồi hàng rào bảo vệ, thu nhỏ lỗ chân lông và cấp ẩm tầng sâu suốt 72 giờ.
+        </p>
+        <a href="shop.html?category=skincare" class="btn-primary">
+          <i class="fa-solid fa-sparkles"></i> Khám phá quy trình
+        </a>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Routine dưỡng da" style="width:100%; height:100%; object-fit:cover; min-height:360px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews / Testimonials -->
+  <section class="section" style="background:#fff; border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-subtitle">PHẢN HỒI THỰC TẾ</span>
+        <h2 class="section-title">Khách Hàng Nói Gì Về Lumina</h2>
+        <p class="section-desc">Hơn 98.6% khách hàng đánh giá 5 sao cho trải nghiệm mua sắm và dịch vụ hỗ trợ của chúng tôi</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
+        <div style="background:var(--bg-surface); padding:28px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <div style="color:#f59e0b; margin-bottom:12px; font-size:15px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:18px;">
+            "Mình mua serum Estée Lauder ở Lumina dùng được 3 tuần da phục hồi thần kỳ, các vết thâm sau mụn mờ hẳn. Đóng gói rất kỹ, có cả thiệp cảm ơn và mẫu thử tặng kèm!"
+          </p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" style="width:44px; height:44px; border-radius:50%; object-fit:cover;" />
+            <div>
+              <strong style="font-size:14px; color:var(--secondary);">Thanh Huyền</strong>
+              <small style="color:var(--text-light); display:block;">Hà Nội • Khách hàng VIP</small>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-surface); padding:28px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <div style="color:#f59e0b; margin-bottom:12px; font-size:15px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:18px;">
+            "Son Rouge Dior màu 999 lên màu chuẩn và mịn như nhung. Mình đặt hàng hỏa tốc trong 2 tiếng là nhận được ngay. Nhân viên tư vấn cực kỳ nhiệt tình và am hiểu!"
+          </p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" style="width:44px; height:44px; border-radius:50%; object-fit:cover;" />
+            <div>
+              <strong style="font-size:14px; color:var(--secondary);">Minh Trang</strong>
+              <small style="color:var(--text-light); display:block;">TP. Hồ Chí Minh • Khách hàng thân thiết</small>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-surface); padding:28px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+          <div style="color:#f59e0b; margin-bottom:12px; font-size:15px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:18px;">
+            "Nước hoa Chanel No.5 thơm sang trọng ngất ngây, lưu hương cả ngày dài. Check mã batch code đầy đủ, yên tâm tuyệt đối khi mua sắm mỹ phẩm tại Lumina."
+          </p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" style="width:44px; height:44px; border-radius:50%; object-fit:cover;" />
+            <div>
+              <strong style="font-size:14px; color:var(--secondary);">Đức Huy</strong>
+              <small style="color:var(--text-light); display:block;">Đà Nẵng • Khách hàng xác thực</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-newsletter-card">
+        <div class="footer-newsletter-text">
+          <h3>Đăng Ký Nhận Bản Tin Làm Đẹp</h3>
+          <p>Nhận ngay Voucher giảm giá 10% cho đơn hàng đầu tiên và cẩm nang chăm sóc da độc quyền.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Cảm ơn bạn đã đăng ký nhận bản tin!', 'success');">
+          <input type="email" placeholder="Nhập địa chỉ email của bạn..." required />
+          <button type="submit" class="btn-primary">Đăng ký</button>
+        </form>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="brand-name" style="color:#fff;">LUMINA <span>Beauty</span></div>
+          </div>
+          <p>Hệ thống phân phối mỹ phẩm cao cấp chính hãng hàng đầu Việt Nam. Tôn vinh vẻ đẹp tự nhiên và nâng niu làn da của bạn.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Về Lumina</h4>
+          <div class="footer-links">
+            <a href="about.html"><i class="fa-solid fa-angle-right"></i> Câu chuyện thương hiệu</a>
+            <a href="shop.html"><i class="fa-solid fa-angle-right"></i> Tất cả sản phẩm</a>
+            <a href="blog.html"><i class="fa-solid fa-angle-right"></i> Blog bí quyết làm đẹp</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Hệ thống chi nhánh</a>
+            <a href="staff.html"><i class="fa-solid fa-angle-right"></i> Cổng thông tin nhân viên</a>
+            <a href="admin.html"><i class="fa-solid fa-angle-right"></i> Cổng quản trị viên</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Chính Sách & Hỗ Trợ</h4>
+          <div class="footer-links">
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Chính sách đổi trả 7 ngày</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Chính sách giao hàng</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Cam kết 100% chính hãng</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Bảo mật thông tin</a>
+            <a href="profile.html#orders"><i class="fa-solid fa-angle-right"></i> Tra cứu đơn hàng</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Liên Hệ</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Showroom 1: 18 Tràng Tiền, Quận Hoàn Kiếm, Hà Nội</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Showroom 2: 72 Lê Thánh Tôn, Bến Nghé, Quận 1, TP. HCM</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>Hotline miễn cước: 1900 8899 (8h00 - 22h00)</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: cskh@lumina.vn</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 LUMINA BEAUTY & COSMETICS. Tất cả quyền được bảo lưu.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="MasterCard"></i>
+          <i class="fa-brands fa-cc-jcb" title="JCB"></i>
+          <i class="fa-solid fa-qrcode" title="VietQR"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Home Render Flash Sale & Best Sellers
+    document.addEventListener("DOMContentLoaded", () => {
+      const products = getProducts();
+      
+      const flashSaleContainer = document.getElementById("homeFlashSaleGrid");
+      if (flashSaleContainer) {
+        const flashProducts = products.filter(p => p.discount >= 14).slice(0, 4);
+        flashSaleContainer.innerHTML = flashProducts.map(p => createProductCardHTML(p)).join('');
+      }
+
+      const bestSellerContainer = document.getElementById("homeBestSellerGrid");
+      if (bestSellerContainer) {
+        const bestSellers = products.filter(p => p.isBestSeller).slice(0, 4);
+        bestSellerContainer.innerHTML = bestSellers.map(p => createProductCardHTML(p)).join('');
+      }
+
+      // Simple Countdown Simulator
+      let hours = 8, minutes = 45, seconds = 20;
+      setInterval(() => {
+        seconds--;
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+          if (minutes < 0) {
+            minutes = 59;
+            hours--;
+          }
+        }
+        document.getElementById("saleHours").textContent = String(hours).padStart(2, '0');
+        document.getElementById("saleMinutes").textContent = String(minutes).padStart(2, '0');
+        document.getElementById("saleSeconds").textContent = String(seconds).padStart(2, '0');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

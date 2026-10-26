@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi Tiết Sản Phẩm | LUMINA COSMETICS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-text">
+        <i class="fa-solid fa-sparkles"></i> Miễn phí vận chuyển toàn quốc đơn từ <strong>500.000₫</strong> | Nhập mã <span>LUMINA10</span> giảm 10%
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html"><i class="fa-solid fa-circle-check"></i> 100% Chính hãng</a>
+        <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Hệ thống Showroom</a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <div class="brand-name">LUMINA <span>Beauty</span></div>
+            <span class="brand-tagline">Nâng niu vẻ đẹp thuần khiết</span>
+          </div>
+        </a>
+
+        <div class="header-search-wrap">
+          <form class="header-search-form" action="shop.html" method="GET">
+            <input type="text" name="q" placeholder="Tìm kiếm serum, son môi, nước hoa..." required />
+            <button type="submit" class="search-submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <a href="wishlist.html" class="action-icon-btn" title="Yêu thích">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-counter wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <a href="cart.html" class="action-icon-btn" title="Giỏ hàng">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-counter cart-count-badge" style="display:none;">0</span>
+          </a>
+          <div class="user-auth-slot"></div>
+          <button class="mobile-menu-btn" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+          <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li><a href="shop.html" class="nav-link active">Cửa hàng <span class="nav-badge-hot">HOT</span></a></li>
+          <li><a href="shop.html?category=skincare" class="nav-link">Chăm sóc da</a></li>
+          <li><a href="shop.html?category=makeup" class="nav-link">Trang điểm</a></li>
+          <li><a href="shop.html?category=perfume" class="nav-link">Nước hoa</a></li>
+          <li><a href="blog.html" class="nav-link">Góc làm đẹp</a></li>
+          <li><a href="contact.html" class="nav-link">Liên hệ & Hỗ trợ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <div class="brand-name" style="font-size:20px;">LUMINA <span>Beauty</span></div>
+      <button id="mobileNavClose" style="font-size:24px; color:var(--text-muted);">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> Giới thiệu</a>
+      <a href="shop.html"><i class="fa-solid fa-store"></i> Cửa hàng mỹ phẩm</a>
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog làm đẹp</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+    </div>
+  </div>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="shop.html">Cửa hàng</a>
+        <span>/</span>
+        <span class="current" id="detailCrumbName">Chi tiết sản phẩm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail Section -->
+  <section class="product-detail-section">
+    <div class="container">
+      <div class="product-detail-card">
+        <!-- Gallery -->
+        <div class="detail-gallery">
+          <div class="detail-main-img">
+            <img id="detailMainImage" src="" alt="Sản phẩm" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80';" />
+          </div>
+          <div class="detail-thumbs" id="detailThumbs">
+            <!-- Dynamic thumbnails -->
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="detail-info">
+          <div class="detail-brand-badge" id="detailBrand">BRAND</div>
+          <h1 class="detail-title" id="detailName">Tên Sản Phẩm</h1>
+
+          <div class="detail-meta-row">
+            <div class="stars" id="detailStars" style="color: #f59e0b; display: flex; gap: 3px;"></div>
+            <strong id="detailRatingScore" style="color: var(--secondary); font-size: 13.5px;">5.0</strong>
+            <span style="color: var(--border-color);">|</span>
+            <span id="detailReviewCount" style="color: var(--text-muted); font-size: 13.5px;">0 đánh giá</span>
+            <span style="color: var(--border-color);">|</span>
+            <span class="qv-stock in-stock" id="detailStockStatus"><i class="fa-solid fa-check-circle"></i> Còn hàng</span>
+          </div>
+
+          <div class="detail-price-box">
+            <span class="detail-price" id="detailPrice">0₫</span>
+            <span class="detail-original-price" id="detailOriginalPrice">0₫</span>
+            <span class="detail-discount-tag" id="detailDiscountTag">-0%</span>
+          </div>
+
+          <p class="detail-desc-summary" id="detailDescSummary">Mô tả sản phẩm tóm tắt...</p>
+
+          <!-- Variants Picker -->
+          <div style="margin-bottom: 20px;">
+            <label class="qv-label">Lựa chọn phân loại / Dung tích / Tone màu:</label>
+            <div class="variant-chips" id="detailVariantChips">
+              <!-- Dynamic chips -->
+            </div>
+          </div>
+
+          <!-- Quantity & Actions -->
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+            <div class="quantity-control">
+              <button type="button" onclick="updateDetailQty(-1)">-</button>
+              <input type="number" id="detailQtyInput" value="1" min="1" readonly />
+              <button type="button" onclick="updateDetailQty(1)">+</button>
+            </div>
+
+            <button class="btn-primary" onclick="handleDetailAddToCart()" style="flex: 1; min-width: 200px;">
+              <i class="fa-solid fa-bag-shopping"></i> Thêm vào giỏ hàng
+            </button>
+
+            <button class="btn-secondary" onclick="handleDetailBuyNow()" style="background: var(--secondary); color: #fff; border-color: var(--secondary);">
+              <i class="fa-solid fa-bolt"></i> Mua ngay
+            </button>
+
+            <button class="btn-secondary btn-wishlist-toggle" id="detailWishlistBtn" onclick="handleDetailWishlistToggle()" title="Yêu thích">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="detail-trust-badges">
+            <div class="trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div>
+                <strong>100% Auth</strong>
+                <div>Đền bù 200% nếu giả</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div>
+                <strong>Freeship</strong>
+                <div>Đơn từ 500K</div>
+              </div>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-rotate-left"></i>
+              <div>
+                <strong>Đổi trả 7 ngày</strong>
+                <div>Miễn phí đổi mới</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Tabs -->
+      <div class="product-tabs-wrapper">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="tab-desc">Chi tiết sản phẩm</button>
+          <button class="tab-btn" data-tab="tab-ingr">Thành phần tự nhiên</button>
+          <button class="tab-btn" data-tab="tab-how">Hướng dẫn sử dụng</button>
+          <button class="tab-btn" data-tab="tab-reviews">Đánh giá khách hàng</button>
+        </div>
+
+        <div class="tab-pane active" id="tab-desc">
+          <div id="tabContentDesc"></div>
+        </div>
+
+        <div class="tab-pane" id="tab-ingr">
+          <div id="tabContentIngredients"></div>
+        </div>
+
+        <div class="tab-pane" id="tab-how">
+          <div id="tabContentHowToUse"></div>
+        </div>
+
+        <div class="tab-pane" id="tab-reviews">
+          <div class="reviews-grid">
+            <!-- Reviews List -->
+            <div>
+              <h4 style="font-family: var(--font-serif); font-size: 20px; color: var(--secondary); margin-bottom: 20px;">
+                Đánh giá gần đây
+              </h4>
+              <div id="reviewsList">
+                <div class="review-item">
+                  <div class="review-author">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Mai Phương" class="review-avatar" />
+                    <div>
+                      <strong>Mai Phương</strong>
+                      <div class="stars" style="color: #f59e0b; font-size: 12px; margin-top: 2px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                      </div>
+                    </div>
+                    <small style="margin-left: auto; color: var(--text-light); font-size: 12px;">3 ngày trước</small>
+                  </div>
+                  <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+                    Sản phẩm xài cực kỳ ưng ý! Chất mỏng nhẹ, thấm nhanh không nhờn dính. Giao hàng nhanh đóng gói cẩn thận. Chắc chắn sẽ ủng hộ shop tiếp.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review Form -->
+            <div class="review-form-box">
+              <h4>Gửi đánh giá của bạn</h4>
+              <form onsubmit="submitReview(event)">
+                <div class="form-group">
+                  <label>Họ và tên của bạn: *</label>
+                  <input type="text" name="reviewAuthor" class="form-control" placeholder="Ví dụ: Nguyễn Phương Nga" required />
+                </div>
+                <div class="form-group">
+                  <label>Đánh giá số sao: *</label>
+                  <select name="reviewRating" class="form-control" style="cursor: pointer;">
+                    <option value="5">⭐⭐⭐⭐⭐ (5/5) Tuyệt vời</option>
+                    <option value="4">⭐⭐⭐⭐ (4/5) Rất tốt</option>
+                    <option value="3">⭐⭐⭐ (3/5) Tạm ổn</option>
+                    <option value="2">⭐⭐ (2/5) Chưa hài lòng</option>
+                    <option value="1">⭐ (1/5) Kém</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Cảm nhận về sản phẩm: *</label>
+                  <textarea name="reviewComment" rows="4" class="form-control" placeholder="Chia sẻ trải nghiệm sử dụng thực tế của bạn về chất kem, mùi hương, độ thẩm thấu..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">
+                  <i class="fa-solid fa-paper-plane"></i> Gửi đánh giá
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div style="margin-top: 50px;">
+        <div class="section-title-wrap">
+          <span class="section-subtitle">GỢI Ý DÀNH CHO BẠN</span>
+          <h2 class="section-title">Sản Phẩm Cùng Bộ Sưu Tập</h2>
+        </div>
+        <div class="products-grid" id="relatedProductsGrid">
+          <!-- Dynamic related products -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="brand-name" style="color:#fff;">LUMINA <span>Beauty</span></div>
+          </div>
+          <p>Hệ thống phân phối mỹ phẩm cao cấp chính hãng hàng đầu Việt Nam. Tôn vinh vẻ đẹp tự nhiên và nâng niu làn da của bạn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Về Lumina</h4>
+          <div class="footer-links">
+            <a href="about.html"><i class="fa-solid fa-angle-right"></i> Giới thiệu</a>
+            <a href="shop.html"><i class="fa-solid fa-angle-right"></i> Cửa hàng</a>
+            <a href="blog.html"><i class="fa-solid fa-angle-right"></i> Blog làm đẹp</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Liên hệ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Chính Sách</h4>
+          <div class="footer-links">
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Chính sách đổi trả 7 ngày</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Vận chuyển giao hàng</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Cam kết chính hãng</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Showroom</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> 18 Tràng Tiền, Hoàn Kiếm, Hà Nội</li>
+            <li><i class="fa-solid fa-location-dot"></i> 72 Lê Thánh Tôn, Quận 1, TP. HCM</li>
+            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 LUMINA BEAUTY & COSMETICS.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-solid fa-qrcode"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>

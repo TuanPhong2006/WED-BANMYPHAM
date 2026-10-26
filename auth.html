@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng Nhập & Đăng Ký Tài Khoản | LUMINA COSMETICS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-text">
+        <i class="fa-solid fa-sparkles"></i> Miễn phí vận chuyển toàn quốc đơn từ <strong>500.000₫</strong> | Nhập mã <span>LUMINA10</span> giảm 10%
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html"><i class="fa-solid fa-circle-check"></i> 100% Chính hãng</a>
+        <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Hệ thống Showroom</a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <div class="brand-name">LUMINA <span>Beauty</span></div>
+            <span class="brand-tagline">Nâng niu vẻ đẹp thuần khiết</span>
+          </div>
+        </a>
+
+        <div class="header-search-wrap">
+          <form class="header-search-form" action="shop.html" method="GET">
+            <input type="text" name="q" placeholder="Tìm kiếm serum, son môi, nước hoa..." required />
+            <button type="submit" class="search-submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <a href="wishlist.html" class="action-icon-btn" title="Yêu thích">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-counter wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <a href="cart.html" class="action-icon-btn" title="Giỏ hàng">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-counter cart-count-badge" style="display:none;">0</span>
+          </a>
+          <div class="user-auth-slot"></div>
+          <button class="mobile-menu-btn" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+          <li><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li><a href="shop.html" class="nav-link">Cửa hàng <span class="nav-badge-hot">HOT</span></a></li>
+          <li><a href="shop.html?category=skincare" class="nav-link">Chăm sóc da</a></li>
+          <li><a href="shop.html?category=makeup" class="nav-link">Trang điểm</a></li>
+          <li><a href="shop.html?category=perfume" class="nav-link">Nước hoa</a></li>
+          <li><a href="blog.html" class="nav-link">Góc làm đẹp</a></li>
+          <li><a href="contact.html" class="nav-link">Liên hệ & Hỗ trợ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <h1 class="page-banner-title">Tài Khoản Lumina Beauty</h1>
+      <div class="breadcrumbs">
+        <a href="index.html">Trang chủ</a>
+        <span>/</span>
+        <span class="current">Tài khoản</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auth Card Container -->
+  <div class="container">
+    <div class="auth-wrapper">
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">Đăng Nhập</button>
+        <button class="auth-tab-btn" id="tabBtnRegister" onclick="switchAuthTab('register')">Đăng Ký</button>
+      </div>
+
+      <!-- Login Pane -->
+      <div class="auth-pane active" id="authPaneLogin">
+        <form onsubmit="handleLoginSubmit(event)">
+          <div class="form-group">
+            <label>Địa chỉ Email: *</label>
+            <input type="email" id="loginEmail" class="form-control" placeholder="khachhang@lumina.vn" required />
+          </div>
+
+          <div class="form-group">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label>Mật khẩu: *</label>
+              <a href="javascript:void(0)" onclick="switchAuthTab('forgot')" style="font-size:12.5px; color:var(--primary);">Quên mật khẩu?</a>
+            </div>
+            <input type="password" id="loginPassword" class="form-control" placeholder="••••••" required />
+          </div>
+
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:13px; color:var(--text-muted);">
+            <input type="checkbox" id="rememberMe" checked style="accent-color:var(--primary);" />
+            <label for="rememberMe" style="cursor:pointer;">Ghi nhớ đăng nhập trên thiết bị này</label>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; padding:12px; font-size:15px;">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập ngay
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>Hoặc tiếp tục với</span>
+        </div>
+
+        <div class="social-auth-buttons">
+          <button type="button" class="btn-social" onclick="showToast('Tính năng đăng nhập Google đang kết nối!', 'info')">
+            <i class="fa-brands fa-google" style="color:#ea4335;"></i> Google
+          </button>
+          <button type="button" class="btn-social" onclick="showToast('Tính năng đăng nhập Facebook đang kết nối!', 'info')">
+            <i class="fa-brands fa-facebook" style="color:#1877f2;"></i> Facebook
+          </button>
+        </div>
+
+        <!-- Quick 1-Click Demo Accounts -->
+        <div class="quick-demo-accounts">
+          <h5><i class="fa-solid fa-sparkles"></i> Tài khoản Demo Test Nhanh:</h5>
+          
+          <div class="demo-account-pill" onclick="fillDemoCredentials('usr_001')">
+            <div>
+              <strong style="color:var(--secondary);">1. Khách Hàng:</strong> Nguyễn Thu Hà
+              <div style="color:var(--text-light); font-size:11px;">khachhang@lumina.vn | Pass: 123</div>
+            </div>
+            <button class="role-chip" style="background:#e2e8f0; color:#334155;">Chọn</button>
+          </div>
+
+          <div class="demo-account-pill" onclick="fillDemoCredentials('usr_002')">
+            <div>
+              <strong style="color:var(--secondary);">2. Nhân Viên:</strong> Trần Bảo Ngọc
+              <div style="color:var(--text-light); font-size:11px;">nhanvien@lumina.vn | Pass: 123</div>
+            </div>
+            <button class="role-chip role-staff">Chọn</button>
+          </div>
+
+          <div class="demo-account-pill" onclick="fillDemoCredentials('usr_003')">
+            <div>
+              <strong style="color:var(--secondary);">3. Quản Trị Viên:</strong> Phạm Minh Anh
+              <div style="color:var(--text-light); font-size:11px;">admin@lumina.vn | Pass: 123</div>
+            </div>
+            <button class="role-chip role-admin">Chọn</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register Pane -->
+      <div class="auth-pane" id="authPaneRegister">
+        <form onsubmit="handleRegisterSubmit(event)">
+          <div class="form-group">
+            <label>Họ và tên của bạn: *</label>
+            <input type="text" name="regName" class="form-control" placeholder="Ví dụ: Lê Thảo My" required />
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ Email: *</label>
+            <input type="email" name="regEmail" class="form-control" placeholder="thaomy@gmail.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Số điện thoại: *</label>
+            <input type="tel" name="regPhone" class="form-control" placeholder="09xxxxxxxx" required />
+          </div>
+
+          <div class="form-group">
+            <label>Mật khẩu: *</label>
+            <input type="password" name="regPassword" class="form-control" placeholder="Tối thiểu 6 ký tự" required />
+          </div>
+
+          <div class="form-group">
+            <label>Xác nhận lại mật khẩu: *</label>
+            <input type="password" name="regPasswordConfirm" class="form-control" placeholder="Nhập lại mật khẩu" required />
+          </div>
+
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:13px; color:var(--text-muted);">
+            <input type="checkbox" id="regTerms" required style="accent-color:var(--primary);" />
+            <label for="regTerms" style="cursor:pointer;">Tôi đồng ý với Quy chế & Chính sách bảo mật của Lumina</label>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; padding:12px; font-size:15px;">
+            <i class="fa-solid fa-user-plus"></i> Hoàn tất đăng ký
+          </button>
+        </form>
+      </div>
+
+      <!-- Forgot Password Pane -->
+      <div class="auth-pane" id="authPaneForgot">
+        <h4 style="font-family:var(--font-serif); font-size:20px; color:var(--secondary); margin-bottom:10px;">Đặt Lại Mật Khẩu</h4>
+        <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:20px;">
+          Nhập địa chỉ email đăng ký của bạn. Chúng tôi sẽ gửi đường dẫn khôi phục mật khẩu trong vài giây.
+        </p>
+
+        <form onsubmit="handleForgotSubmit(event)">
+          <div class="form-group">
+            <label>Email tài khoản của bạn: *</label>
+            <input type="email" id="forgotEmail" class="form-control" placeholder="nhapemail@domain.com" required />
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; padding:12px; margin-bottom:14px;">
+            <i class="fa-solid fa-paper-plane"></i> Gửi liên kết khôi phục
+          </button>
+          <div style="text-align:center;">
+            <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="font-size:13.5px; color:var(--primary); font-weight:600;">
+              <i class="fa-solid fa-arrow-left"></i> Quay lại Đăng nhập
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;">
+        <div>&copy; 2026 LUMINA BEAUTY & COSMETICS.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-solid fa-qrcode"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function switchAuthTab(tab) {
+      document.getElementById("tabBtnLogin").classList.toggle("active", tab === "login");
+      document.getElementById("tabBtnRegister").classList.toggle("active", tab === "register");
+
+      document.getElementById("authPaneLogin").classList.toggle("active", tab === "login");
+      document.getElementById("authPaneRegister").classList.toggle("active", tab === "register");
+      document.getElementById("authPaneForgot").classList.toggle("active", tab === "forgot");
+    }
+
+    function fillDemoCredentials(userId) {
+      const users = JSON.parse(localStorage.getItem("lumina_users") || "[]");
+      const target = users.find(u => u.id === userId);
+      if (target) {
+        document.getElementById("loginEmail").value = target.email;
+        document.getElementById("loginPassword").value = target.password;
+        showToast(`Đã tự động điền tài khoản: ${target.name} (${target.role.toUpperCase()})`, "info");
+      }
+    }
+
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const pass = document.getElementById("loginPassword").value.trim();
+
+      const users = JSON.parse(localStorage.getItem("lumina_users") || "[]");
+      const target = users.find(u => u.email.toLowerCase() === email && u.password === pass);
+
+      if (!target) {
+        showToast("Email hoặc mật khẩu không chính xác! Vui lòng thử lại.", "error");
+        return;
+      }
+
+      setCurrentUser(target);
+      showToast(`Chào mừng ${target.name} đã quay trở lại!`, "success");
+
+      setTimeout(() => {
+        if (target.role === "admin") {
+          window.location.href = "admin.html";
+        } else if (target.role === "staff") {
+          window.location.href = "staff.html";
+        } else {
+          window.location.href = "profile.html";
+        }
+      }, 700);
+    }
+
+    function handleRegisterSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.regName.value.trim();
+      const email = form.regEmail.value.trim().toLowerCase();
+      const phone = form.regPhone.value.trim();
+      const pass = form.regPassword.value;
+      const passConfirm = form.regPasswordConfirm.value;
+
+      if (pass !== passConfirm) {
+        showToast("Mật khẩu xác nhận không trùng khớp!", "warning");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem("lumina_users") || "[]");
+      if (users.find(u => u.email.toLowerCase() === email)) {
+        showToast("Địa chỉ email này đã được đăng ký!", "error");
+        return;
+      }
+
+      const newUser = {
+        id: `usr_${Date.now()}`,
+        name: name,
+        email: email,
+        phone: phone,
+        password: pass,
+        role: "customer",
+        address: "Chưa cập nhật địa chỉ",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+        joinDate: new Date().toISOString().split("T")[0],
+        status: "active"
+      };
+
+      users.push(newUser);
+      localStorage.setItem("lumina_users", JSON.stringify(users));
+
+      setCurrentUser(newUser);
+      showToast("Đăng ký tài khoản thành công! Đang chuyển hướng...", "success");
+
+      setTimeout(() => {
+        window.location.href = "profile.html";
+      }, 800);
+    }
+
+    function handleForgotSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById("forgotEmail").value.trim();
+      showToast(`Đã gửi hướng dẫn khôi phục mật khẩu tới ${email}!`, "success");
+      setTimeout(() => {
+        switchAuthTab('login');
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

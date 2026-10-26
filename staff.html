@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cổng Vận Hành Đơn Hàng & CSKH (Nhân Viên) | LUMINA BEAUTY</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-layout">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar-header">
+        <div class="dash-brand">
+          <div class="dash-brand-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="dash-brand-title">
+            LUMINA <span>Staff Portal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-sidebar-menu">
+        <div class="dash-menu-label">VẬN HÀNH & XỬ LÝ</div>
+        <button class="dash-nav-item active" onclick="switchStaffSection('orders', this)">
+          <div class="dash-nav-item-left">
+            <i class="fa-solid fa-boxes-packing"></i>
+            <span>Xử lý đơn hàng</span>
+          </div>
+          <span class="dash-nav-badge badge-alert" id="staffPendingBadge">0</span>
+        </button>
+
+        <button class="dash-nav-item" onclick="switchStaffSection('inventory', this)">
+          <div class="dash-nav-item-left">
+            <i class="fa-solid fa-warehouse"></i>
+            <span>Kiểm tra tồn kho</span>
+          </div>
+        </button>
+
+        <button class="dash-nav-item" onclick="switchStaffSection('support', this)">
+          <div class="dash-nav-item-left">
+            <i class="fa-solid fa-comments"></i>
+            <span>Tư vấn & CSKH</span>
+          </div>
+        </button>
+
+        <div class="dash-menu-label" style="margin-top:20px;">ĐIỀU HƯỚNG</div>
+        <a href="index.html" class="dash-nav-item">
+          <div class="dash-nav-item-left">
+            <i class="fa-solid fa-store"></i>
+            <span>Xem trang bán hàng</span>
+          </div>
+        </a>
+        <a href="admin.html" class="dash-nav-item" style="color:#c084fc;">
+          <div class="dash-nav-item-left">
+            <i class="fa-solid fa-crown"></i>
+            <span>Cổng Quản Trị Viên</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-mini">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Staff" class="dash-user-avatar" />
+          <div>
+            <div class="dash-user-name" id="staffHeaderName">Trần Bảo Ngọc</div>
+            <div class="dash-user-role" id="staffHeaderRole">Nhân viên Vận hành</div>
+          </div>
+        </div>
+        <button onclick="logout()" title="Đăng xuất" style="color:#ef4444; font-size:16px;">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dash-main">
+      <!-- Top Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button class="dash-toggle-btn" onclick="document.getElementById('dashSidebar').classList.toggle('active')">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h1 class="dash-breadcrumb-title" id="staffPageTitle">Xử Lý & Điều Phối Đơn Hàng</h1>
+        </div>
+
+        <div class="dash-header-right">
+          <span class="role-chip role-staff">ROLE: NHÂN VIÊN</span>
+          <a href="index.html" class="dash-btn-store">
+            <i class="fa-solid fa-house"></i> Về Client Store
+          </a>
+        </div>
+      </header>
+
+      <!-- Role Warning if not staff/admin -->
+      <div id="staffAccessWarning" style="display:none; background:#fef3c7; border-left:4px solid #f59e0b; padding:16px 30px; margin:20px 30px 0; border-radius:6px; font-size:14px; color:#92400e;">
+        <i class="fa-solid fa-triangle-exclamation"></i> <strong>Lưu ý:</strong> Bạn đang xem ở vai trò khách hàng. Hãy bấm vào nút <strong>"Nhân viên (Bảo Ngọc)"</strong> trên thanh DEMO ROLE ở trên cùng để thao tác duyệt đơn và hỗ trợ khách hàng với đầy đủ quyền hạn!
+      </div>
+
+      <!-- Content Sections -->
+      <main class="dash-content">
+        <!-- Section 1: Orders Management -->
+        <div class="staff-section" id="staffSection-orders" style="display:block;">
+          <!-- KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card kpi-pink">
+              <div class="kpi-info">
+                <h5>ĐƠN CHỜ DUYỆT</h5>
+                <div class="kpi-value" id="staffKpiPending">0</div>
+                <span class="kpi-trend positive"><i class="fa-solid fa-bell"></i> Cần xử lý ngay</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+            </div>
+
+            <div class="kpi-card kpi-blue">
+              <div class="kpi-info">
+                <h5>ĐANG ĐÓNG GÓI</h5>
+                <div class="kpi-value" id="staffKpiProcessing">0</div>
+                <span class="kpi-trend"><i class="fa-solid fa-box"></i> Đang chuẩn bị</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-box-open"></i></div>
+            </div>
+
+            <div class="kpi-card kpi-purple">
+              <div class="kpi-info">
+                <h5>ĐANG GIAO HÀNG</h5>
+                <div class="kpi-value" id="staffKpiShipping">0</div>
+                <span class="kpi-trend"><i class="fa-solid fa-truck"></i> Cùng ViettelPost</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+            </div>
+          </div>
+
+          <!-- Orders Table Card -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h2 class="dash-card-title">Danh Sách Đơn Hàng Cần Xử Lý</h2>
+              
+              <!-- Filter Pills -->
+              <div class="dash-filter-tabs">
+                <button class="filter-pill staff-tab-pill active" data-status="all" onclick="filterStaffOrders('all')">Tất cả</button>
+                <button class="filter-pill staff-tab-pill" data-status="pending" onclick="filterStaffOrders('pending')">Chờ xử lý</button>
+                <button class="filter-pill staff-tab-pill" data-status="processing" onclick="filterStaffOrders('processing')">Đang đóng gói</button>
+                <button class="filter-pill staff-tab-pill" data-status="shipping" onclick="filterStaffOrders('shipping')">Đang giao</button>
+                <button class="filter-pill staff-tab-pill" data-status="completed" onclick="filterStaffOrders('completed')">Hoàn thành</button>
+                <button class="filter-pill staff-tab-pill" data-status="cancelled" onclick="filterStaffOrders('cancelled')">Đã hủy</button>
+              </div>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Mã đơn</th>
+                    <th>Khách hàng</th>
+                    <th>Sản phẩm</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái xử lý</th>
+                    <th>Ngày đặt</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="staffOrdersTableBody">
+                  <!-- Dynamic via staff.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Fast Inventory Lookup -->
+        <div class="staff-section" id="staffSection-inventory" style="display:none;">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">Kiểm Tra Nhanh Tồn Kho Mỹ Phẩm</h2>
+                <p style="font-size:13.5px; color:#64748b; margin-top:4px;">Theo dõi số lượng hàng thực tế, cập nhật số lượng nhập thêm hoặc điều chỉnh hàng hư hỏng.</p>
+              </div>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Tên mỹ phẩm & Thương hiệu</th>
+                    <th>Giá bán</th>
+                    <th>Tình trạng tồn</th>
+                    <th>Điều chỉnh kho nhanh</th>
+                  </tr>
+                </thead>
+                <tbody id="staffInventoryTableBody">
+                  <!-- Dynamic via staff.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Customer Support -->
+        <div class="staff-section" id="staffSection-support" style="display:none;">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">Tin Nhắn Tư Vấn & Hỗ Trợ Khách Hàng</h2>
+                <p style="font-size:13.5px; color:#64748b; margin-top:4px;">Tin nhắn gửi từ form Liên hệ hoặc hộp chat tư vấn của khách hàng trên website.</p>
+              </div>
+            </div>
+
+            <div id="staffMessagesContainer">
+              <!-- Dynamic via staff.js -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/staff.js"></script>
+  <script>
+    function switchStaffSection(sec, btn) {
+      document.querySelectorAll(".dash-nav-item").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      document.querySelectorAll(".staff-section").forEach(s => s.style.display = "none");
+      const target = document.getElementById(`staffSection-${sec}`);
+      if (target) target.style.display = "block";
+
+      const titles = {
+        orders: "Xử Lý & Điều Phối Đơn Hàng",
+        inventory: "Kiểm Tra Tồn Kho Mỹ Phẩm",
+        support: "Tư Vấn & Hỗ Trợ Khách Hàng"
+      };
+      document.getElementById("staffPageTitle").textContent = titles[sec] || "Cổng Nhân Viên";
+    }
+  </script>
+</body>
+</html>

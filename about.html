@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới Thiệu Về Chúng Tôi | LUMINA COSMETICS</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container inner">
+      <div class="announcement-text">
+        <i class="fa-solid fa-sparkles"></i> Miễn phí vận chuyển toàn quốc đơn từ <strong>500.000₫</strong> | Nhập mã <span>LUMINA10</span> giảm 10%
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html"><i class="fa-solid fa-circle-check"></i> 100% Chính hãng</a>
+        <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Hệ thống Showroom</a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div>
+            <div class="brand-name">LUMINA <span>Beauty</span></div>
+            <span class="brand-tagline">Nâng niu vẻ đẹp thuần khiết</span>
+          </div>
+        </a>
+
+        <div class="header-search-wrap">
+          <form class="header-search-form" action="shop.html" method="GET">
+            <input type="text" name="q" placeholder="Tìm kiếm serum, son môi, nước hoa..." required />
+            <button type="submit" class="search-submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+        <div class="header-actions">
+          <a href="wishlist.html" class="action-icon-btn" title="Yêu thích">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-counter wishlist-count-badge" style="display:none;">0</span>
+          </a>
+          <a href="cart.html" class="action-icon-btn" title="Giỏ hàng">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge-counter cart-count-badge" style="display:none;">0</span>
+          </a>
+          <div class="user-auth-slot"></div>
+          <button class="mobile-menu-btn" id="mobileMenuToggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav">
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+          <li><a href="about.html" class="nav-link active">Giới thiệu</a></li>
+          <li><a href="shop.html" class="nav-link">Cửa hàng <span class="nav-badge-hot">HOT</span></a></li>
+          <li><a href="shop.html?category=skincare" class="nav-link">Chăm sóc da</a></li>
+          <li><a href="shop.html?category=makeup" class="nav-link">Trang điểm</a></li>
+          <li><a href="shop.html?category=perfume" class="nav-link">Nước hoa</a></li>
+          <li><a href="blog.html" class="nav-link">Góc làm đẹp</a></li>
+          <li><a href="contact.html" class="nav-link">Liên hệ & Hỗ trợ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-header">
+      <div class="brand-name" style="font-size:20px;">LUMINA <span>Beauty</span></div>
+      <button id="mobileNavClose" style="font-size:24px; color:var(--text-muted);">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> Giới thiệu</a>
+      <a href="shop.html"><i class="fa-solid fa-store"></i> Cửa hàng mỹ phẩm</a>
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog làm đẹp</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Liên hệ</a>
+    </div>
+  </div>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <div class="container">
+      <h1 class="page-banner-title">Câu Chuyện Về Lumina Cosmetics</h1>
+      <div class="breadcrumbs">
+        <a href="index.html">Trang chủ</a>
+        <span>/</span>
+        <span class="current">Giới thiệu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 70px;">
+        <div>
+          <span class="section-subtitle">SỨ MỆNH CỦA CHÚNG TÔI</span>
+          <h2 style="font-family: var(--font-serif); font-size: 34px; color: var(--secondary); margin-bottom: 20px; line-height: 1.3;">
+            Tôn Vinh Vẻ Đẹp Độc Bản Bằng Những Sản Phẩm Mỹ Phẩm Tinh Túy Nhất
+          </h2>
+          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+            Được thành lập vào năm 2020 từ niềm đam mê sâu sắc với khoa học chăm sóc da và thẩm mỹ hiện đại, <strong>Lumina Cosmetics</strong> ra đời với sứ mệnh mang lại những giải pháp làm đẹp chuẩn y khoa, an toàn, minh bạch và hiệu quả vượt trội cho phụ nữ Việt.
+          </p>
+          <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px;">
+            Tại Lumina, chúng tôi tin rằng mọi làn da đều có vẻ đẹp riêng biệt. Không cần phải chạy theo những khuôn mẫu hoàn hảo rập khuôn, chỉ cần bạn biết cách lắng nghe, thấu hiểu và trao cho làn da những dưỡng chất lành tính nhất.
+          </p>
+          <div style="display: flex; gap: 30px;">
+            <div>
+              <strong style="font-family: var(--font-serif); font-size: 30px; color: var(--primary);">06+</strong>
+              <div style="font-size: 13px; color: var(--text-muted);">Năm phát triển</div>
+            </div>
+            <div>
+              <strong style="font-family: var(--font-serif); font-size: 30px; color: var(--primary);">1.000+</strong>
+              <div style="font-size: 13px; color: var(--text-muted);">Mỹ phẩm Auth</div>
+            </div>
+            <div>
+              <strong style="font-family: var(--font-serif); font-size: 30px; color: var(--primary);">20+</strong>
+              <div style="font-size: 13px; color: var(--text-muted);">Thương hiệu toàn cầu</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Lumina Showroom" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; object-fit: cover;" />
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="section-title-wrap">
+        <span class="section-subtitle">GIÁ TRỊ CỐT LÕI</span>
+        <h2 class="section-title">4 Cam Kết Vàng Từ Lumina</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 70px;">
+        <div style="background: #fff; padding: 32px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px;">
+            <i class="fa-solid fa-stamp"></i>
+          </div>
+          <h3 style="font-size: 18px; color: var(--secondary); margin-bottom: 8px;">100% Chính Hãng</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Nhập khẩu chính ngạch từ các tập đoàn mỹ phẩm danh tiếng hàng đầu Pháp, Mỹ, Hàn Quốc, Nhật Bản với đầy đủ tem phụ.</p>
+        </div>
+
+        <div style="background: #fff; padding: 32px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px;">
+            <i class="fa-solid fa-paw"></i>
+          </div>
+          <h3 style="font-size: 18px; color: var(--secondary); margin-bottom: 8px;">Cruelty-Free</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Ưu tiên các dòng mỹ phẩm thuần chay, không thử nghiệm trên động vật và thân thiện với hệ sinh thái môi trường.</p>
+        </div>
+
+        <div style="background: #fff; padding: 32px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px;">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <h3 style="font-size: 18px; color: var(--secondary); margin-bottom: 8px;">Tư Vấn Chuẩn Y Khoa</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Đội ngũ dược sĩ và chuyên viên da liễu được đào tạo bài bản, phân tích kỹ lưỡng tình trạng da trước khi gợi ý routine.</p>
+        </div>
+
+        <div style="background: #fff; padding: 32px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px;">
+            <i class="fa-solid fa-heart-circle-check"></i>
+          </div>
+          <h3 style="font-size: 18px; color: var(--secondary); margin-bottom: 8px;">Đổi Trả Dễ Dàng</h3>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">Chính sách bảo hành và hỗ trợ đổi trả trong 7 ngày nếu sản phẩm có bất kỳ dấu hiệu kích ứng hoặc lỗi từ nhà sản xuất.</p>
+        </div>
+      </div>
+
+      <!-- Expert Team -->
+      <div class="section-title-wrap">
+        <span class="section-subtitle">ĐỘI NGŨ CHUYÊN GIA</span>
+        <h2 class="section-title">Hội Đồng Cố Vấn Chuyên Môn</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div style="background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); text-align: center;">
+          <img src="https://images.unsplash.com/photo-1594824813579-994326fcf96f?auto=format&fit=crop&w=600&q=80" alt="BS. Khánh Huyền" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" />
+          <div style="padding: 20px;">
+            <h4 style="font-size: 18px; color: var(--secondary); margin-bottom: 4px;">BS. CKII Đặng Khánh Huyền</h4>
+            <span style="font-size: 13px; color: var(--primary); font-weight: 600;">Cố vấn Da liễu & Thẩm mỹ Nội khoa</span>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 10px;">Hơn 12 năm kinh nghiệm điều trị da liễu tại Bệnh viện Da liễu Trung ương.</p>
+          </div>
+        </div>
+
+        <div style="background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); text-align: center;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Phạm Minh Anh" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" />
+          <div style="padding: 20px;">
+            <h4 style="font-size: 18px; color: var(--secondary); margin-bottom: 4px;">CEO. Phạm Minh Anh</h4>
+            <span style="font-size: 13px; color: var(--primary); font-weight: 600;">Nhà sáng lập & Điều hành Lumina</span>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 10px;">Tốt nghiệp chuyên ngành Hóa Dược Đại học Quốc gia Seoul, Hàn Quốc.</p>
+          </div>
+        </div>
+
+        <div style="background: #fff; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); text-align: center;">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Trần Bảo Ngọc" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" />
+          <div style="padding: 20px;">
+            <h4 style="font-size: 18px; color: var(--secondary); margin-bottom: 4px;">Trần Bảo Ngọc</h4>
+            <span style="font-size: 13px; color: var(--primary); font-weight: 600;">Trưởng phòng Tư vấn & Chăm sóc KH</span>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 10px;">Chứng chỉ chuyên gia chăm sóc sắc đẹp quốc tế CIDESCO Thụy Sĩ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="brand-name" style="color:#fff;">LUMINA <span>Beauty</span></div>
+          </div>
+          <p>Hệ thống phân phối mỹ phẩm cao cấp chính hãng hàng đầu Việt Nam. Tôn vinh vẻ đẹp tự nhiên và nâng niu làn da của bạn.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Về Lumina</h4>
+          <div class="footer-links">
+            <a href="about.html"><i class="fa-solid fa-angle-right"></i> Giới thiệu</a>
+            <a href="shop.html"><i class="fa-solid fa-angle-right"></i> Cửa hàng</a>
+            <a href="blog.html"><i class="fa-solid fa-angle-right"></i> Blog làm đẹp</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Liên hệ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Chính Sách</h4>
+          <div class="footer-links">
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Chính sách đổi trả 7 ngày</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Vận chuyển giao hàng</a>
+            <a href="contact.html"><i class="fa-solid fa-angle-right"></i> Cam kết chính hãng</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Showroom</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i> 18 Tràng Tiền, Hoàn Kiếm, Hà Nội</li>
+            <li><i class="fa-solid fa-location-dot"></i> 72 Lê Thánh Tôn, Quận 1, TP. HCM</li>
+            <li><i class="fa-solid fa-phone"></i> Hotline: 1900 8899</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 LUMINA BEAUTY & COSMETICS.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-solid fa-qrcode"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
